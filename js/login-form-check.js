@@ -28,9 +28,11 @@ $(document).ready(function() {
 		// Приватные методы
 
 		var _formValidate = function (event) {
-			var	noEmail = 'Введите email',
-				noPassword = 'Введите пароль',
-				invalidData = 'Неверный email или пароль';
+			var	noEmail = _email.attr('data-empty'),
+				emailFildEmpty = _email.attr('data-empty'),
+				noPassword = _password.attr('data-empty'),
+				DataFormat = _password.attr('data-error-format'),
+				dataErrorUnknown = _email.attr('data-error-unknown');
 			var userPassword = '123',
 				userEmail = 'mail@mail.com';
 
@@ -52,15 +54,22 @@ $(document).ready(function() {
 					});
 				}
 				else {
-					if (_password.val().trim == userPassword && _email.val() == userEmail) {
-						_form.unbind('submit').submit();
-						_error.fadeOut;
+					if (!(pattern.test(_email.val()))) {
+						var errorDataFormat = _error.clone().text(DataFormat);
+						_email.before(errorDataFormat);
+						errorDataFormat.fadeIn(800);
 					}
 					else {
-						var invalidData = _error.clone().text(invalidData);
-						_email.before(invalidData);
-						invalidData.fadeIn(800);
-					}
+						if (_password.val().trim() == userPassword && _email.val() == userEmail) {
+							_form.unbind('submit').submit();
+							_error.fadeOut;
+						}
+						else {
+							var errorDataFormat = _error.clone().text(dataErrorUnknown);
+							_email.before(errorDataFormat);
+							errorDataFormat.fadeIn(800);
+						}
+					}	
 				}
 			}
 		return {

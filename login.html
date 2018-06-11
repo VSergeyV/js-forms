@@ -31,8 +31,15 @@
 			<div class="error-description">
 				<p>Введите верные данные для входа или воспользуйтесь <a href="#">восстановлением пароля, </a>чтобы войти на сайт.</p>
 			</div>
-			<input id="email-fild" class="input" type="text" placeholder="Введите email" name="email"/>
-			<input id="password-fild" class="input" type="password" placeholder="Пароль" name="password"/>
+			<input id="email-fild" class="input" type="text" placeholder="Введите email" name="email"
+			data-empty="Введите email" 
+			data-error-format="Неверный формат email"
+			data-error-unknown="Неверный email или пароль"
+			/>
+			<input id="password-fild" class="input" type="password" placeholder="Пароль" name="password"
+			data-empty="Введите пароль" 
+			data-error-unknown="Неверный email или пароль" 
+			data-error-format="Неверный формат email"/>
 			<div class="plate__links">
 				<label class="label form__label-checkbox">
 					<input class="form__input-checkbox" type="checkbox"/><span class="form__checkbox"> </span>Запомнить меня
