@@ -27,6 +27,7 @@ $(document).ready(function() {
 
 		var _formValidate = function (event) {
 			$('div.error').remove();
+			$('div.error-description').remove();
 			var	noEmail = _email.attr('data-empty'),
 				noPassword = _password.attr('data-empty'),
 				emailBusy = _email.attr('data-busy'),
@@ -68,9 +69,15 @@ $(document).ready(function() {
 						}
 						else {
 							var emailFildBusy = _error.clone().text(emailBusy);
+							var emailDescription = '<div class="error-description"><p>Используйте другой email чтобы создать новый аккаунт.</p><p>Или воспользуйтесь<a href="#">восстановлением пароля</a>, чтобы войти на сайт.</p></div>';
+							_email.before(emailDescription);
 							_email.before(emailFildBusy);
 							emailFildBusy.fadeIn(800);
-						
+							_email.on('focus', function() {
+								$('div.error-description').remove();
+								emailFildBusy.fadeOut(800);
+							});
+					
 						}
 					}
 				}
