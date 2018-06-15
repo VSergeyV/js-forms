@@ -74,7 +74,7 @@ $(document).ready(function() {
 							_email.before(emailFildBusy);
 							emailFildBusy.fadeIn(800);
 							_email.on('focus', function() {
-								$('div.error-description').remove();
+								$('div.error-description').fadeOut(800);
 								emailFildBusy.fadeOut(800);
 							});
 					
