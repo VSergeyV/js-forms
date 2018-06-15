@@ -28,6 +28,7 @@ $(document).ready(function() {
 		// Приватные методы
 
 		var _formValidate = function (event) {
+			$('div.error-description').remove();
 			var	noEmail = _email.attr('data-empty'),
 				emailFildEmpty = _email.attr('data-empty'),
 				noPassword = _password.attr('data-empty'),
@@ -66,8 +67,14 @@ $(document).ready(function() {
 						}
 						else {
 							var errorDataFormat = _error.clone().text(dataErrorUnknown);
+							var emailDescription = '<div class="error-description"><p>Введите верные данные для входа или воспользуйтесь <a href="#">восстановлением пароля, </a>чтобы войти на сайт.</p></div>';
+							_email.before(emailDescription);
 							_email.before(errorDataFormat);
 							errorDataFormat.fadeIn(800);
+							_email.on('focus', function() {
+								$('div.error-description').fadeOut(800);
+								errorDataFormat.fadeOut(800);
+							});
 						}
 					}	
 				}
