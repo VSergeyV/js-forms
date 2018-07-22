@@ -28,15 +28,17 @@ $(document).ready(function() {
 		var _formValidate = function (event) {
 			$('div.error').remove();
 			$('div.error-description').remove();
-			var	noEmail = _email.attr('data-empty'),
-				noPassword = _password.attr('data-empty'),
-				emailBusy = _email.attr('data-busy'),
-				invalidEmail = _email.attr('data-invalid-format');
+			// var errors_variabke
+	    	var passwordFildEmpty = _error.clone().text(_password.attr('data-empty'));
+	    	var emailFildEmpty = _error.clone().text(_email.attr('data-empty'));
+			var InvalidEmail = _error.clone().text(_email.attr('data-invalid-format'));
+			var emailFildBusy = _error.clone().text(_email.attr('data-busy'));
+			var emailDescription = '<div class="error-description"><p>Используйте другой email чтобы создать новый аккаунт.</p><p>Или воспользуйтесь<a href="#">восстановлением пароля</a>, чтобы войти на сайт.</p></div>';
+
 			var userEmail = 'mail@mail.com';
 				//$('div.error').remove();
 	    		event.preventDefault();
 	    		if (_password.val() == '') {
-	    			var passwordFildEmpty = _error.clone().text(noPassword);
 	    			_password.before(passwordFildEmpty);
 	    			passwordFildEmpty.fadeIn(800);
 	    			_password.on('focus', function() {
@@ -44,7 +46,6 @@ $(document).ready(function() {
 					});	    			
 	    		}
 	    		if ( _email.val() == "" ) {
-	    			var emailFildEmpty = _error.clone().text(noEmail);
 					_email.before(emailFildEmpty);
 					emailFildEmpty.fadeIn(800);
 					_email.on('focus', function() {
@@ -53,7 +54,6 @@ $(document).ready(function() {
 				}
 				else {
 					if ( !(pattern.test(_email.val()))) {
-						var InvalidEmail = _error.clone().text(invalidEmail);
 						_email.before(InvalidEmail);
 						InvalidEmail.fadeIn(800);
 						_email.on('focus', function() {
@@ -64,19 +64,19 @@ $(document).ready(function() {
 						if ( !(_email.val().trim() == userEmail) && !(_password.val() == '') ) {
 							
 							console.log('sdsd');
-							_form.unbind('submit').submit();
+							_form.unbind('submit');//.submit();
 							_error.fadeOut;	
 						}
 						else {
-							var emailFildBusy = _error.clone().text(emailBusy);
-							var emailDescription = '<div class="error-description"><p>Используйте другой email чтобы создать новый аккаунт.</p><p>Или воспользуйтесь<a href="#">восстановлением пароля</a>, чтобы войти на сайт.</p></div>';
-							_email.before(emailDescription);
-							_email.before(emailFildBusy);
-							emailFildBusy.fadeIn(800);
-							_email.on('focus', function() {
-								$('div.error-description').fadeOut(800);
-								emailFildBusy.fadeOut(800);
-							});
+							if (_email.val().trim() == userEmail) {
+								_email.before(emailDescription);
+								_email.before(emailFildBusy);
+								emailFildBusy.fadeIn(800);
+								_email.on('focus', function() {
+									$('div.error-description').fadeOut(800);
+									emailFildBusy.fadeOut(800);
+								});
+							}
 					
 						}
 					}
