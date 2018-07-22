@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
-	<meta charset="UTF-8"/>
+	<meta charset="UTF-8" />
 	<title>Вход на сайт</title>
-	<meta name="viewport" content="width=device-width,initial-scale=1"/>
-	<meta name="keywords" content=""/>
-	<meta name="description" content=""/>
-	<link rel="stylesheet" href="libs/normalize-css/normalize.css"/>
-	<link rel="stylesheet" href="libs/bootstrap-4-grid/grid.min.css"/>
-	<link rel="stylesheet" href="css/main.css"/>
-	<link rel="stylesheet" href="css/custom.css"/>
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<link rel="stylesheet" href="libs/normalize-css/normalize.css" />
+	<link rel="stylesheet" href="libs/bootstrap-4-grid/grid.min.css" />
+	<link rel="stylesheet" href="css/main.css" />
+	<link rel="stylesheet" href="css/custom.css" />
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;subset=cyrillic-ext" rel="stylesheet">
 </head>
+
 <body class="login-page">
 	<div class="login-page-content">
 		<div class="login-header">
@@ -20,7 +22,8 @@
 				<div class="header-logo__text">
 					<div class="header-logo__title">Digital Lifestyle</div>
 				</div>
-			</div><a class="link" href="registration.html">Регистрация</a>
+			</div>
+			<a class="link" href="registration.html">Регистрация</a>
 		</div>
 		<form id="form-login" class="plate" action="success.html">
 			<!-- <div class="plate__heading">Вход на сайт</div>
@@ -29,31 +32,37 @@
 			<div class="error">Введите пароль</div>
 			<div class="error error--with-desc">Неверный email или пароль</div> -->
 			<div class="error-description">
-				<p>Введите верные данные для входа или воспользуйтесь <a href="#">восстановлением пароля, </a>чтобы войти на сайт.</p>
+				<p>Введите верные данные для входа или воспользуйтесь
+					<a href="#">восстановлением пароля, </a>чтобы войти на сайт.</p>
 			</div>
-			<input id="email-fild" class="input" type="text" placeholder="Введите email" name="email"
+			<input id="email-fild" class="input" type="text" placeholder="Введите email" name="email" 
 			data-empty="Введите email" 
-			data-error-format="Неверный формат email"
-			data-error-unknown="Неверный email или пароль"
-			/>
-			<input id="password-fild" class="input" type="password" placeholder="Пароль" name="password"
+			data-error-format="Неверный формат email" 
+			data-error-unknown="Неверный email или пароль" />
+			<input id="password-fild" class="input" type="password" placeholder="Пароль" name="password" 
 			data-empty="Введите пароль" 
-			data-error-unknown="Неверный email или пароль" 
-			data-error-format="Неверный формат email"/>
+			data-error-unknown="Неверный email или пароль" />
+			<!-- data-error-format="Неверный формат email" --> 
 			<div class="plate__links">
 				<label class="label form__label-checkbox">
-					<input class="form__input-checkbox" type="checkbox"/><span class="form__checkbox"> </span>Запомнить меня
-				</label><a class="link" href="#">Забыл пароль</a>
+					<input class="form__input-checkbox" type="checkbox" />
+					<span class="form__checkbox"> </span>Запомнить меня
+				</label>
+				<a class="link" href="#">Забыл пароль</a>
 			</div>
-			<button type="submit" class="button button--login" href="#">Войти<span class="button__icon button__icon--right"><i class="fas fa-angle-right"> </i></span></button>
-	</form>
-	<div class="login-footer">
-		<p>&copy; Юрий Ключевский</p>
-		<p>Создано с <i class="fas fa-heart color-heart"></i> в <a href="//webcademy.ru" class="link" target="_blank">WebCademy.ru</a> в 2018 году</p>
+			<button type="submit" class="button button--login" href="#">Войти
+				<span class="button__icon button__icon--right"><i class="fas fa-angle-right"> </i></span>
+			</button>
+		</form>
+		<div class="login-footer">
+			<p>&copy; Юрий Ключевский</p>
+			<p>Создано с <i class="fas fa-heart color-heart"></i> в
+				<a href="//webcademy.ru" class="link" target="_blank">WebCademy.ru</a> в 2018 году</p>
+		</div>
 	</div>
-</div>
-<script src="libs/jquery/jquery.min.js"></script>
-<script src="js/login-form-check.js"></script>
-<script defer="defer" src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+	<script src="libs/jquery/jquery.min.js"></script>
+	<script src="js/login-form-check.js"></script>
+	<script defer="defer" src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 </body>
+
 </html>
